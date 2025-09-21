@@ -138,12 +138,15 @@ function decreaseProgress() {
 function awardStar() {
     starsEarned++;
     currentProgress = 0;
-    updateUI();
 
-    // Add a slight delay to show the star animation
-    setTimeout(() => {
-        updateStarsDisplay();
-    }, 100);
+    // Update everything except stars first
+    updateProgressBar();
+    updateProgressText();
+    updateStarsCounter();
+    updateButtonStates();
+
+    // Add the new star with animation
+    addNewStarWithAnimation();
 }
 
 function updateUI() {
@@ -175,6 +178,28 @@ function updateStarsDisplay() {
         star.className = 'star earned';
         star.textContent = '⭐';
         star.setAttribute('aria-hidden', 'true');
+        starsContainer.appendChild(star);
+    }
+}
+
+function addNewStarWithAnimation() {
+    // Clear and rebuild all stars, but only animate the new one
+    starsContainer.innerHTML = '';
+
+    for (let i = 0; i < starsEarned; i++) {
+        const star = document.createElement('span');
+        star.textContent = '⭐';
+        star.setAttribute('aria-hidden', 'true');
+
+        if (i === starsEarned - 1) {
+            // This is the new star - add animation
+            star.className = 'star earned';
+        } else {
+            // Existing stars - no animation
+            star.className = 'star earned';
+            star.style.animation = 'none';
+        }
+
         starsContainer.appendChild(star);
     }
 }
