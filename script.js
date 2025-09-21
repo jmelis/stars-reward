@@ -152,7 +152,7 @@ function awardStar() {
 function updateUI() {
     updateProgressBar();
     updateProgressText();
-    updateStarsDisplay();
+    updateStarsDisplayNoAnimation();
     updateStarsCounter();
     updateButtonStates();
 }
@@ -176,6 +176,19 @@ function updateStarsDisplay() {
     for (let i = 0; i < starsEarned; i++) {
         const star = document.createElement('span');
         star.className = 'star earned';
+        star.textContent = '⭐';
+        star.setAttribute('aria-hidden', 'true');
+        starsContainer.appendChild(star);
+    }
+}
+
+function updateStarsDisplayNoAnimation() {
+    starsContainer.innerHTML = '';
+
+    for (let i = 0; i < starsEarned; i++) {
+        const star = document.createElement('span');
+        star.className = 'star earned';
+        star.style.animation = 'none'; // Disable animation
         star.textContent = '⭐';
         star.setAttribute('aria-hidden', 'true');
         starsContainer.appendChild(star);
