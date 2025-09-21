@@ -26,8 +26,6 @@ body {
     background-color: var(--background-light);
     color: var(--text-dark);
     line-height: 1.6;
-    min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
     -webkit-text-size-adjust: 100%;
 }
 
@@ -44,17 +42,23 @@ body {
     border: 0;
 }
 
-/* Main container */
+/* Main container - FIXED FOR iOS */
 .container {
     max-width: 768px;
     margin: 0 auto;
-    min-height: calc(100vh - 100px); /* Reserve space for mobile UI */
-    min-height: calc(100dvh - 50px); /* Dynamic viewport with buffer */
+    /* REMOVED: min-height properties that cause iOS issues */
     display: flex;
     flex-direction: column;
     padding: 15px;
-    padding-bottom: 80px; /* Large bottom padding for mobile browsers */
+    padding-bottom: 150px; /* Much larger bottom padding for iOS browsers */
     gap: 15px;
+}
+
+/* iOS-specific fix */
+@supports (-webkit-touch-callout: none) {
+    .container {
+        padding-bottom: 180px; /* Even more space specifically for iOS WebKit */
+    }
 }
 
 /* Stars section */
@@ -191,7 +195,7 @@ body {
 /* Controls section */
 .controls-section {
     flex-shrink: 0;
-    margin-bottom: 20px; /* Extra space at bottom */
+    margin-bottom: 40px; /* Increased bottom margin */
 }
 
 .button-container {
@@ -284,6 +288,7 @@ button.pressed {
 @media (min-width: 481px) and (max-width: 768px) {
     .container {
         padding: 30px;
+        padding-bottom: 120px; /* Consistent bottom padding */
         gap: 40px;
     }
 
@@ -308,6 +313,7 @@ button.pressed {
 @media (min-width: 769px) {
     .container {
         padding: 40px;
+        padding-bottom: 80px; /* Less padding needed on desktop */
         gap: 50px;
     }
 
