@@ -48,12 +48,12 @@ body {
 .container {
     max-width: 768px;
     margin: 0 auto;
-    min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: calc(100vh - 100px); /* Reserve space for mobile UI */
+    min-height: calc(100dvh - 50px); /* Dynamic viewport with buffer */
     display: flex;
     flex-direction: column;
     padding: 15px;
-    padding-bottom: max(15px, env(safe-area-inset-bottom, 15px)); /* Safe area for iOS */
+    padding-bottom: 80px; /* Large bottom padding for mobile browsers */
     gap: 15px;
 }
 
@@ -191,6 +191,7 @@ body {
 /* Controls section */
 .controls-section {
     flex-shrink: 0;
+    margin-bottom: 20px; /* Extra space at bottom */
 }
 
 .button-container {
