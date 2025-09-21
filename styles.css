@@ -50,8 +50,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 30px;
+    padding: 15px;
+    gap: 15px;
 }
 
 /* Stars section */
@@ -61,7 +61,7 @@ body {
 
 .stars-display {
     background: white;
-    padding: 25px 20px;
+    padding: 15px 15px;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 10px var(--shadow-light);
     text-align: center;
@@ -71,11 +71,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: 15px;
-    min-height: 120px;
+    gap: 6px;
+    margin-bottom: 10px;
+    min-height: 80px;
     align-content: flex-start;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .star {
@@ -113,7 +113,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     color: var(--text-light);
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 /* Progress section */
@@ -131,18 +131,18 @@ body {
 
 .progress-label {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     color: var(--text-dark);
 }
 
 .progress-bar-wrapper {
     background: white;
-    padding: 25px;
+    padding: 15px;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 10px var(--shadow-light);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .progress-bar {
@@ -193,7 +193,7 @@ body {
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
 }
 
